@@ -7,5 +7,26 @@ received = [
 ]
 
 
+drift = []
+for expected_num, received_num in zip(expected, received):
+    drift.append(abs(received_num - expected_num))
+
+for i in range(len(expected)):
+    print(f"Expected: {expected[i]}")
+    print(f"Received: {received[i]}")
+    print(f"Drift: {drift[i]}")
+
+total_drift = 0
+for i in range(len(drift)):
+    total_drift = total_drift + drift[i]
+
+print(f"The total drift is {total_drift}")
+
+avg_drift = total_drift / len(drift)
+
+print(f"The average drift is {avg_drift}")
+
+
+
 
 
